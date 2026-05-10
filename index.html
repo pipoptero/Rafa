@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Expediente Rafa | Crupont Legacy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scene" aria-hidden="true"></div>
+    <main class="app">
+      <section class="intro" id="intro">
+        <p class="kicker">Securest // Incidencia R-1984</p>
+        <h1>Rafa, tu turno empieza ahora.</h1>
+        <p>
+          Hay un sobre esperando en el ala cerrada de St. Mary's. Anna, Isaac y
+          Judit han dejado el acceso bloqueado por seguridad. Ya sabes cómo va:
+          nada de abrir puertas sin mirar antes el mapa.
+        </p>
+        <div class="intro-photos" aria-label="Fotos de escape rooms anteriores">
+          <img src="assets/team-red-mirror.jpeg" alt="El grupo bajo luz roja en un escape room" />
+          <img src="assets/team-survived-secret.jpeg" alt="El grupo celebrando que sobrevivió al escape room" />
+          <img src="assets/rafa-red-corridor.jpeg" alt="Rafa en un pasillo rojo de escape room" />
+        </div>
+        <button class="primary" data-start>Entrar al expediente</button>
+      </section>
+
+      <section class="casefile is-hidden" id="casefile" aria-live="polite">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Crupont Legacy // Bono clasificado</p>
+            <h2>Expediente de regalo</h2>
+          </div>
+          <div class="progress" aria-label="Progreso del expediente">
+            <span data-step-dot="1"></span>
+            <span data-step-dot="2"></span>
+            <span data-step-dot="3"></span>
+          </div>
+        </header>
+
+        <div class="panel-grid">
+          <aside class="evidence">
+            <div class="character-sheet">
+              <p class="sheet-label">Ficha de emergencia</p>
+              <h3>Rafa</h3>
+              <dl class="stats">
+                <div>
+                  <dt>Fuerza</dt>
+                  <dd>+1</dd>
+                </div>
+                <div>
+                  <dt>Destreza</dt>
+                  <dd>+2</dd>
+                </div>
+                <div>
+                  <dt>Inteligencia</dt>
+                  <dd>+3</dd>
+                </div>
+                <div>
+                  <dt>Percepción</dt>
+                  <dd>+2</dd>
+                </div>
+                <div>
+                  <dt>Cordura</dt>
+                  <dd>-1</dd>
+                </div>
+                <div>
+                  <dt>Sospecha de Isaac</dt>
+                  <dd>+4</dd>
+                </div>
+              </dl>
+            </div>
+            <h3>Mesa de pruebas</h3>
+            <button class="evidence-card" data-evidence="guardia">
+              <span>01</span>
+              Parte de guardia
+            </button>
+            <button class="evidence-card" data-evidence="taquilla">
+              <span>02</span>
+              Taquilla de visitantes
+            </button>
+            <button class="evidence-card" data-evidence="mesa">
+              <span>03</span>
+              Mapa táctico
+            </button>
+          </aside>
+
+          <section class="terminal">
+            <div class="terminal-screen">
+              <div class="crt-frame">
+                <div class="crt-bar">
+                  <span>SECUREST OS / CRT-07</span>
+                  <span>LINEA AISLADA</span>
+                </div>
+                <div class="crt-display">
+                  <p class="status" data-status>ESPERANDO IDENTIFICACION</p>
+                  <h3 data-title>Bloqueo 1: el turno</h3>
+                  <div class="terminal-copy" data-copy>
+                    En la pantalla parpadea una nota: "Cuando todo se queda en
+                    silencio, empiezan las visitas de verdad".
+                  </div>
+                  <div class="hint is-hidden" data-hint></div>
+                  <form class="roll-panel" data-roll-form>
+                    <div>
+                      <p class="roll-meta" data-roll-meta>Prueba de Percepción // CD 12</p>
+                      <label for="roll">Tira un d20 físico e introduce el resultado</label>
+                    </div>
+                    <div class="answer-row">
+                      <input
+                        id="roll"
+                        data-roll
+                        type="number"
+                        min="1"
+                        max="20"
+                        inputmode="numeric"
+                        placeholder="1-20"
+                      />
+                      <button class="primary" type="submit">Resolver tirada</button>
+                    </div>
+                    <p class="roll-result is-hidden" data-roll-result></p>
+                  </form>
+                  <form class="answer-form" data-form>
+                    <label for="answer" data-label>Introduce la palabra de acceso</label>
+                    <div class="answer-row">
+                      <input
+                        id="answer"
+                        data-answer
+                        autocomplete="off"
+                        spellcheck="false"
+                        inputmode="text"
+                        placeholder="Respuesta"
+                      />
+                      <button class="primary" type="submit">Validar</button>
+                    </div>
+                  </form>
+                  <div class="actions">
+                    <button class="ghost" type="button" data-show-hint>Pedir pista</button>
+                    <button class="ghost" type="button" data-reset>Reiniciar expediente</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="voucher is-hidden" id="voucher">
+        <p class="kicker">Acceso concedido</p>
+        <h2>Rafa, tienes una misión pendiente.</h2>
+        <div class="voucher-card">
+          <p class="stamp">Bono regalo</p>
+          <h3>Crupont Legacy</h3>
+          <p class="voucher-summary">
+            Una sala de escape de terror para volver a gritar, sospechar de
+            todos los pasillos y discutir el plan como si estuviéramos en una
+            campaña imposible.
+          </p>
+          <div class="dedication">
+            <p>
+              Después de sobrevivir juntos a mazmorras imposibles, campañas
+              eternas, monstruos, traiciones, decisiones dudosas y algún que
+              otro susto en escape rooms… tocaba añadir una nueva misión al
+              tablero.
+            </p>
+            <p>
+              Esperamos que este regalo te dé otra buena dosis de tensión,
+              puzzles, paranoia y gritos poco dignos de aventureros veteranos.
+            </p>
+            <p>
+              Gracias por tantas partidas, risas y aventuras compartidas. Que
+              nunca falten dados, llaves escondidas… ni puertas que abrir.
+            </p>
+            <p>¡Feliz cumpleaños!</p>
+            <p>Anna, Isaac y Judit</p>
+          </div>
+          <div class="survivor-wall" aria-label="Archivo fotográfico de supervivientes">
+            <figure>
+              <img src="assets/team-survived-secret.jpeg" alt="Foto del grupo en The Krugger's Secret" />
+              <figcaption>Prueba A: supervivientes confirmados</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/team-red-mirror.jpeg" alt="Foto del grupo bajo una luz roja" />
+              <figcaption>Prueba B: nivel de dignidad comprometido</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/duo-secret-door.jpeg" alt="Rafa y Anna asomando junto a un cartel de I Survived" />
+              <figcaption>Prueba C: reincidencia probable</figcaption>
+            </figure>
+          </div>
+          <dl>
+            <div>
+              <dt>Para</dt>
+              <dd>Rafa</dd>
+            </div>
+            <div>
+              <dt>De</dt>
+              <dd>Anna, Isaac y Judit</dd>
+            </div>
+            <div>
+              <dt>Destino</dt>
+              <dd>St. Mary's Hospital</dd>
+            </div>
+          </dl>
+          <a class="primary link-button" href="https://www.crupontlegacy.com/home" target="_blank" rel="noreferrer">
+            Ver escape room
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <template id="evidence-guardia">
+      <figure class="evidence-photo">
+        <img src="assets/team-red-mirror.jpeg" alt="El grupo bajo luz roja en un escape room" />
+        <figcaption>Registro de cámara // 23:47</figcaption>
+      </figure>
+      <strong>Parte de guardia</strong>
+      <span>La luz roja no perdona a nadie. Las incidencias graves no se registran de día: el turno correcto empieza cuando cae la noche.</span>
+    </template>
+    <template id="evidence-taquilla">
+      <figure class="evidence-photo">
+        <img src="assets/team-survived-secret.jpeg" alt="El grupo posando después de un escape room" />
+        <figcaption>Foto archivada // The Krugger's Secret</figcaption>
+      </figure>
+      <strong>Taquilla de visitantes</strong>
+      <span>Hay tres nombres escritos a mano junto al expediente de Rafa: Anna, Isaac y Judit. Sus iniciales abren el registro de acompañantes.</span>
+    </template>
+    <template id="evidence-mesa">
+      <figure class="evidence-photo">
+        <img src="assets/team-corridor-skull.jpeg" alt="El grupo sentado en un pasillo temático" />
+        <figcaption>Última posición conocida // pasillo estrecho</figcaption>
+      </figure>
+      <strong>Mapa táctico</strong>
+      <span>Descent, Gloomhaven, pasillos estrechos y miedo: si alguien se separa, se complica la partida. La clave es seguir juntos como grupo.</span>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
