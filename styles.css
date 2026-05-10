@@ -311,6 +311,10 @@ h3 {
   color: var(--paper);
 }
 
+.character-sheet.sheet-pulse {
+  animation: sheetPulse 1.15s ease;
+}
+
 .sanity-box {
   margin-bottom: 12px;
   padding: 10px;
@@ -882,6 +886,17 @@ body[data-sanity="3"] .status {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
+}
+
+@keyframes sheetPulse {
+  0%, 100% {
+    border-color: rgba(228, 211, 174, 0.2);
+    box-shadow: none;
+  }
+  35% {
+    border-color: rgba(186, 255, 159, 0.75);
+    box-shadow: 0 0 28px rgba(155, 191, 143, 0.28);
+  }
 }
 
 @keyframes blink {

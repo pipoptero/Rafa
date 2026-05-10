@@ -107,6 +107,7 @@ const rollResult = document.querySelector("[data-roll-result]");
 const chapterReport = document.querySelector("[data-chapter-report]");
 const continueButton = document.querySelector("[data-continue]");
 const terminal = document.querySelector(".terminal-screen");
+const characterSheet = document.querySelector(".character-sheet");
 const sanityLabel = document.querySelector("[data-sanity-label]");
 const sanityMarks = document.querySelectorAll("[data-sanity-mark]");
 const sanityWarning = document.querySelector("[data-sanity-warning]");
@@ -350,12 +351,12 @@ document.querySelector("[data-show-hint]").addEventListener("click", () => {
   hintEl.classList.remove("is-hidden");
 });
 
-document.querySelector("[data-reset]").addEventListener("click", () => {
-  state.step = 0;
-  state.phase = "trial";
-  state.failures = 0;
-  state.sanity = 0;
-  renderTrial();
+document.querySelector("[data-view-sheet]").addEventListener("click", () => {
+  characterSheet.classList.remove("sheet-pulse");
+  characterSheet.scrollIntoView({ behavior: "smooth", block: "center" });
+  window.requestAnimationFrame(() => {
+    characterSheet.classList.add("sheet-pulse");
+  });
 });
 
 evidenceButtons.forEach((button) => {
