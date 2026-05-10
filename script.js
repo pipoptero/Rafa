@@ -1,65 +1,65 @@
 const chapters = [
   {
-    title: "Capítulo 1: el turno que no existe",
-    status: "LLAMADA ANONIMA ENTRANTE",
+    title: "Capítulo 1: la cinta del turno cero",
+    status: "VHS RECUPERADO // PLAY",
     stat: "Percepción",
     mod: 2,
     dc: 12,
     intro:
-      "Rafa recibe un enlace desde un número desconocido. El mensaje dice: no te fíes de nadie. Sabemos que es tu cumpleaños. Anna, Isaac y Judit están dentro del hospital y alguien ha movido sus fichas sin permiso. La pantalla vieja carraspea y muestra una cámara de pasillo: tres sombras esperan al final, pero una cuarta sombra parece ir siempre un paso por delante.",
+      "La transmisión arranca como una cinta de videoclub mal rebobinada. En pantalla: un pasillo de hospital, luz roja, fecha imposible y tres siluetas retenidas al fondo. Anna golpea una puerta con la calma de quien sabe que esto acabará siendo anécdota. Judit señala una cámara que no debería estar encendida. Isaac aparece medio segundo antes que los demás, mirando directamente al objetivo, como si hubiera llegado allí antes que el guion. El sistema escribe: TURNO CERO. Solo quien distinga cuándo empieza podrá abrir el primer cierre.",
     success:
-      "Éxito. Entre el ruido de la cinta VHS distingues una cosa clara: las cámaras solo graban cuando empieza el turno prohibido. El ordenador abre el primer bloqueo.",
+      "Éxito. Rebobinas mentalmente la escena y lo ves: la cinta no se activa por movimiento, ni por cumpleaños, ni por susto barato de los 90. Se activa cuando el hospital cambia de turno y las visitas dejan de ser humanas. El CRT desbloquea la pregunta.",
     failures: [
-      "Fallo. La imagen se dobla, aparece una tarta de cumpleaños con demasiadas velas y oyes a Isaac decir desde algún sitio: yo no he sido. Nadie le cree. Respira, recoloca el dado y vuelve a intentarlo.",
-      "Fallo. Has mirado demasiado tiempo a la pantalla y ahora la pantalla te mira a ti. Anna golpea una puerta al fondo. Judit grita que alguien ha leído una nota en voz alta. Vuelve a tirar.",
+      "Fallo. La cinta se arruga, aparece una tarta con demasiadas velas y una voz de Isaac susurra: yo no he sido. El sistema marca esa frase como evidencia, no como coartada. Recoloca el dado y vuelve a mirar.",
+      "Fallo. La cámara enfoca demasiado tiempo a una puerta cerrada. Anna pide que nadie toque nada. Judit pregunta quién ha leído una nota en voz alta. El monitor responde con interferencias. Vuelve a tirar.",
     ],
     lock: {
       title: "Bloqueo 1: el turno",
       status: "ESPERANDO IDENTIFICACION",
       copy:
-        'En la pantalla parpadea una nota: "Cuando todo se queda en silencio, empiezan las visitas de verdad".',
+        'La cinta se detiene en una nota pegada al monitor: "Cuando todo se queda en silencio, empiezan las visitas de verdad".',
       label: "Introduce la palabra de acceso",
       answers: ["noche", "la noche"],
-      hint: "No es una hora exacta. Es el momento del día en el que dan comienzo las mejores historias de miedo.",
+      hint: "No busca una hora. Busca el momento del día en el que los pasillos dejan de ser fiables.",
     },
   },
   {
-    title: "Capítulo 2: la taquilla de visitantes",
-    status: "REGISTRO DE VICTIMAS LOCALIZADO",
+    title: "Capítulo 2: la taquilla de los nombres",
+    status: "REGISTRO DE VICTIMAS // ABIERTO",
     stat: "Inteligencia",
     mod: 3,
     dc: 14,
     intro:
-      "La taquilla se abre con un golpe seco. Dentro hay tres pulseras de ingreso: Anna, Isaac y Judit. También hay una cuarta etiqueta, escrita con rotulador rojo: sospechoso habitual. La letra se parece demasiado a la de Isaac, que curiosamente siempre sabe dónde está la llave después de decir que no ha tocado nada.",
+      "La primera puerta cede y te escupe a una sala de taquillas con olor a metal viejo y colonia de hospital abandonado. Hay tres pulseras de ingreso colgadas en ganchos oxidados: Anna, Isaac y Judit. La de Anna tiene una nota: mantiene al grupo unido aunque el mapa mienta. La de Judit: encontró una llave, no preguntes dónde. La de Isaac tiene dos etiquetas superpuestas: VICTIMA y SOSPECHOSO HABITUAL. La máquina exige ordenar el registro antes de que las taquillas vuelvan a cerrarse con alguien dentro.",
     success:
-      "Éxito. Ordenas las pistas como si fueran cartas de evento: nombres, iniciales, puerta correcta. La taquilla deja de temblar y el registro de acompañantes se desbloquea.",
+      "Éxito. Cruzas nombres, iniciales y coartadas con precisión de jugador que ya ha visto demasiadas losetas malditas. Anna, Isaac y Judit siguen figurando como acompañantes, aunque el sistema insiste en poner a Isaac entre signos de interrogación. El segundo bloqueo queda listo.",
     failures: [
-      "Fallo. Has intentado aplicar lógica de campaña larga a una taquilla maldita. La taquilla responde con un chirrido que suena exactamente como un máster preparando una traición. Vuelve a tirar.",
-      "Fallo. Isaac aparece en un monitor, sonríe raro y dice: abre esa, que seguro que no pasa nada. Eso cuenta como mala señal oficial. Repite la tirada.",
+      "Fallo. Abres una taquilla equivocada y cae una montaña de componentes imaginarios sin embolsar. El horror adopta muchas formas, y una de ellas es organizar una campaña a medianoche. Vuelve a tirar.",
+      "Fallo. Isaac aparece en el reflejo de una puerta metálica, sonríe raro y dice: abre esa, que seguro que no pasa nada. El sistema aumenta su sospecha en silencio. Repite la tirada.",
     ],
     lock: {
       title: "Bloqueo 2: los acompañantes",
       status: "REGISTRO DE VISITANTES BLOQUEADO",
       copy:
-        "La taquilla conserva tres firmas. El sistema solo acepta las iniciales, en el mismo orden en que aparecen en la prueba 02.",
+        "Tres firmas sobreviven en el registro de visitas. El sistema no quiere nombres completos: solo iniciales, en el orden en que aparecen en la prueba 02.",
       label: "Introduce las iniciales",
       answers: ["aij"],
-      hint: "Anna, Isaac y Judit. Sin espacios, todo junto.",
+      hint: "Son las iniciales de quienes te han metido en esto con cariño y dudosa prudencia.",
     },
   },
   {
-    title: "Capítulo 3: protocolo de supervivencia",
-    status: "MAPA TACTICO INESTABLE",
+    title: "Capítulo 3: la regla que salva partidas",
+    status: "MAPA TACTICO // CORRUPTO",
     stat: "Cordura",
     mod: -1,
     dc: 10,
     intro:
-      "El plano del hospital se convierte en un tablero imposible: pasillos como losetas, puertas como encuentros, habitaciones que parecen diseñadas por alguien que odia a los grupos que se separan. Anna y Judit aparecen marcadas como víctimas en peligro. Isaac aparece marcado como aliado probable, sospechoso posible y problema recurrente.",
+      "El plano del hospital se despliega como un tablero que alguien ha diseñado con odio y mucho tiempo libre. Pasillos como losetas, habitaciones como encuentros, puertas que prometen atajos y huelen a mala decisión. Anna aparece marcada como VICTIMA EN PELIGRO. Judit aparece junto a una llave que nadie recuerda haber conseguido. Isaac parpadea entre ALIADO PROBABLE, SOSPECHOSO POSIBLE y NO DEJAR SOLO CON OBJETOS BRILLANTES. El mapa ofrece una salida rápida si el grupo se separa. Eso, naturalmente, es una trampa.",
     success:
-      "Éxito. Contra todo pronóstico, mantienes la calma. Recuerdas la norma que salva campañas, partidas y noches de escape room: si el grupo se rompe, la historia se cobra intereses.",
+      "Éxito. Aguantas la presión del mapa y no compras el atajo. Has sobrevivido a campañas eternas, mazmorras imposibles y discusiones tácticas donde alguien siempre quiere abrir otra puerta. Recuerdas la regla antigua, la que no sale en las cartas pero salva noches enteras.",
     failures: [
-      "Fallo. Pierdes 1 punto imaginario de cordura al ver una puerta que claramente no estaba ahí hace cinco segundos. Por suerte esto es una web de cumpleaños y no una campaña letal. Vuelve a tirar.",
-      "Fallo. El mapa susurra: dividiros, cubrís más terreno. Tú sabes que esa frase ha matado más grupos que cualquier monstruo de manual. Tira otra vez.",
+      "Fallo. El mapa susurra: dividiros, cubrís más terreno. Esa frase ha eliminado más grupos que cualquier monstruo con miniatura grande. Respira, mira mal a la pantalla y vuelve a tirar.",
+      "Fallo. Una puerta nueva aparece donde antes había pared. Isaac dice que igual es contenido opcional. Anna y Judit, desde algún lugar del hospital, votan claramente que no. Tira otra vez.",
     ],
     lock: {
       title: "Bloqueo 3: protocolo de supervivencia",
@@ -68,7 +68,7 @@ const chapters = [
         "Un post-it pegado al mapa dice: Descent, Gloomhaven, pasillos estrechos, sustos y una norma de oro: nadie se queda solo.",
       label: "Introduce la clave de equipo",
       answers: ["grupo", "en grupo", "juntos"],
-      hint: "La palabra que importa no es miedo, ni puerta, ni mapa. Es como entramos siempre.",
+      hint: "No es una estadística. Es la forma correcta de entrar cuando quieres salir con todos.",
     },
   },
 ];
@@ -77,6 +77,7 @@ const state = {
   step: 0,
   phase: "trial",
   failures: 0,
+  sanity: 0,
 };
 
 let typeTimer = 0;
@@ -98,6 +99,9 @@ const rollInput = document.querySelector("[data-roll]");
 const rollMeta = document.querySelector("[data-roll-meta]");
 const rollResult = document.querySelector("[data-roll-result]");
 const terminal = document.querySelector(".terminal-screen");
+const sanityLabel = document.querySelector("[data-sanity-label]");
+const sanityMarks = document.querySelectorAll("[data-sanity-mark]");
+const sanityWarning = document.querySelector("[data-sanity-warning]");
 const evidenceButtons = document.querySelectorAll("[data-evidence]");
 
 function normalize(value) {
@@ -126,6 +130,31 @@ function updateProgress() {
   });
 }
 
+function updateSanity() {
+  const labels = ["Estable", "Alterada", "Comprometida", "Crítica"];
+  const level = Math.min(state.sanity, 3);
+
+  document.body.dataset.sanity = String(level);
+  sanityLabel.textContent = labels[level];
+  sanityMarks.forEach((mark, index) => {
+    mark.classList.toggle("is-marked", index < level);
+  });
+
+  if (level === 0) {
+    sanityWarning.classList.add("is-hidden");
+    sanityWarning.textContent = "";
+    return;
+  }
+
+  sanityWarning.textContent =
+    level === 1
+      ? "Marca de cordura I: la pantalla conserva ecos de la tirada fallida."
+      : level === 2
+        ? "Marca de cordura II: el expediente empieza a escribir entre líneas."
+        : "Marca de cordura III: algo al otro lado del monitor ya sabe tu nombre.";
+  sanityWarning.classList.remove("is-hidden");
+}
+
 function renderTrial() {
   const chapter = currentChapter();
   scrollToTop();
@@ -143,6 +172,7 @@ function renderTrial() {
   rollInput.value = "";
   rollInput.focus();
   updateProgress();
+  updateSanity();
 }
 
 function renderRiddle(message = "") {
@@ -159,6 +189,7 @@ function renderRiddle(message = "") {
   input.value = "";
   input.focus();
   updateProgress();
+  updateSanity();
 }
 
 function typeCopy(text) {
@@ -241,7 +272,9 @@ rollForm.addEventListener("submit", (event) => {
 
   const failure = chapter.failures[state.failures % chapter.failures.length];
   state.failures += 1;
+  state.sanity += 1;
   fail();
+  updateSanity();
   statusEl.textContent = "TIRADA FALLIDA // REPETIR PRUEBA";
   rollResult.textContent = `Tirada: ${roll} ${signed(chapter.mod)} = ${total}. Necesitas ${chapter.dc}.`;
   rollResult.classList.remove("is-hidden");
@@ -286,6 +319,7 @@ document.querySelector("[data-reset]").addEventListener("click", () => {
   state.step = 0;
   state.phase = "trial";
   state.failures = 0;
+  state.sanity = 0;
   renderTrial();
 });
 
