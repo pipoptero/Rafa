@@ -9,7 +9,28 @@
   <body>
     <div class="scene" aria-hidden="true"></div>
     <main class="app">
-      <section class="intro" id="intro">
+      <section class="transmission" id="transmission">
+        <div class="transmission-shell">
+          <p class="kicker">Transmisión no identificada</p>
+          <h1>Rafa.</h1>
+          <div class="message-card">
+            <p>No respondas a este mensaje.</p>
+            <p>Sabemos que hoy es tu cumpleaños.</p>
+            <p>
+              Anna, Isaac y Judit han entrado donde no debían. El expediente los
+              marca como víctimas.
+            </p>
+            <p>
+              A Isaac, además, lo marca como sospechoso. No sabemos si es un
+              error del sistema. Probablemente no.
+            </p>
+            <p>Trae un d20 físico. No confíes en nadie.</p>
+          </div>
+          <button class="primary" data-accept-transmission>Aceptar transmisión</button>
+        </div>
+      </section>
+
+      <section class="intro is-hidden" id="intro">
         <p class="kicker">Securest // Incidencia R-1984</p>
         <h1>Rafa, tu turno empieza ahora.</h1>
         <p>
@@ -141,6 +162,30 @@
               </div>
             </div>
           </section>
+        </div>
+      </section>
+
+      <section class="finale is-hidden" id="finale">
+        <div class="terminal-screen">
+          <div class="crt-frame">
+            <div class="crt-bar">
+              <span>SECUREST OS / CRT-07</span>
+              <span>SOBRE RECUPERADO</span>
+            </div>
+            <div class="crt-display">
+              <p class="status">ACCESO CONCEDIDO</p>
+              <h2>Las puertas se abren.</h2>
+              <div class="terminal-copy finale-copy">
+                Anna respira al otro lado de la línea. Judit tiene una llave que
+                nadie recuerda haber encontrado. Isaac sonríe demasiado, lo cual
+                no aclara absolutamente nada.
+
+                Dentro del sobre no hay una maldición. Hay algo peor para un
+                aventurero veterano: una nueva fecha que cuadrar en el calendario.
+              </div>
+              <button class="primary" data-open-voucher>Abrir el sobre</button>
+            </div>
+          </div>
         </div>
       </section>
 

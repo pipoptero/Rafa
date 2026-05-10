@@ -81,8 +81,10 @@ const state = {
 
 let typeTimer = 0;
 
+const transmission = document.querySelector("#transmission");
 const intro = document.querySelector("#intro");
 const casefile = document.querySelector("#casefile");
+const finale = document.querySelector("#finale");
 const voucher = document.querySelector("#voucher");
 const statusEl = document.querySelector("[data-status]");
 const titleEl = document.querySelector("[data-title]");
@@ -182,8 +184,14 @@ function stopTyping() {
 }
 
 function revealVoucher() {
-  casefile.classList.add("is-hidden");
+  finale.classList.add("is-hidden");
   voucher.classList.remove("is-hidden");
+  scrollToTop();
+}
+
+function revealFinale() {
+  casefile.classList.add("is-hidden");
+  finale.classList.remove("is-hidden");
   scrollToTop();
 }
 
@@ -194,12 +202,20 @@ function fail() {
   });
 }
 
+document.querySelector("[data-accept-transmission]").addEventListener("click", () => {
+  transmission.classList.add("is-hidden");
+  intro.classList.remove("is-hidden");
+  scrollToTop();
+});
+
 document.querySelector("[data-start]").addEventListener("click", () => {
   intro.classList.add("is-hidden");
   casefile.classList.remove("is-hidden");
   scrollToTop();
   renderTrial();
 });
+
+document.querySelector("[data-open-voucher]").addEventListener("click", revealVoucher);
 
 rollForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -250,7 +266,7 @@ form.addEventListener("submit", (event) => {
   state.failures = 0;
   if (state.step >= chapters.length) {
     document.querySelectorAll("[data-step-dot]").forEach((dot) => dot.classList.add("is-complete"));
-    setTimeout(revealVoucher, 450);
+    setTimeout(revealFinale, 450);
     return;
   }
 
