@@ -13,6 +13,8 @@ const chapters = [
       "Fallo. La cinta se arruga, aparece una tarta con demasiadas velas y una voz de Isaac susurra: yo no he sido. El sistema marca esa frase como evidencia, no como coartada. Recoloca el dado y vuelve a mirar.",
       "Fallo. La cámara enfoca demasiado tiempo a una puerta cerrada. Anna pide que nadie toque nada. Judit pregunta quién ha leído una nota en voz alta. El monitor responde con interferencias. Vuelve a tirar.",
     ],
+    report:
+      "CIERRE 1 DESBLOQUEADO.\n\nAnna sigue emitiendo señales de vida y de impaciencia razonable.\nJudit ha localizado una llave que no aparece en ningún inventario oficial.\nIsaac asegura que no estaba delante de la cámara. La cámara opina lo contrario.\n\nEl expediente abre la siguiente zona.",
     lock: {
       title: "Bloqueo 1: el turno",
       status: "ESPERANDO IDENTIFICACION",
@@ -37,6 +39,8 @@ const chapters = [
       "Fallo. Abres una taquilla equivocada y cae una montaña de componentes imaginarios sin embolsar. El horror adopta muchas formas, y una de ellas es organizar una campaña a medianoche. Vuelve a tirar.",
       "Fallo. Isaac aparece en el reflejo de una puerta metálica, sonríe raro y dice: abre esa, que seguro que no pasa nada. El sistema aumenta su sospecha en silencio. Repite la tirada.",
     ],
+    report:
+      "CIERRE 2 DESBLOQUEADO.\n\nAnna queda registrada como víctima, aliada y voz de sentido común.\nJudit conserva la llave. Nadie sabe de qué puerta. Eso normalmente acaba siendo importante.\nIsaac pasa de sospechoso habitual a sospechoso con acceso a taquillas.\n\nEl mapa táctico empieza a moverse.",
     lock: {
       title: "Bloqueo 2: los acompañantes",
       status: "REGISTRO DE VISITANTES BLOQUEADO",
@@ -61,6 +65,8 @@ const chapters = [
       "Fallo. El mapa susurra: dividiros, cubrís más terreno. Esa frase ha eliminado más grupos que cualquier monstruo con miniatura grande. Respira, mira mal a la pantalla y vuelve a tirar.",
       "Fallo. Una puerta nueva aparece donde antes había pared. Isaac dice que igual es contenido opcional. Anna y Judit, desde algún lugar del hospital, votan claramente que no. Tira otra vez.",
     ],
+    report:
+      "CIERRE 3 DESBLOQUEADO.\n\nAnna y Judit salen del estado VICTIMA EN PELIGRO.\nIsaac permanece bajo observación preventiva, por motivos obvios y por otros que el sistema prefiere no explicar.\nEl grupo sigue junto. La puerta final acepta la regla.\n\nUn sobre aparece al otro lado del monitor.",
     lock: {
       title: "Bloqueo 3: protocolo de supervivencia",
       status: "ULTIMO CIERRE ACTIVO",
@@ -98,6 +104,8 @@ const rollForm = document.querySelector("[data-roll-form]");
 const rollInput = document.querySelector("[data-roll]");
 const rollMeta = document.querySelector("[data-roll-meta]");
 const rollResult = document.querySelector("[data-roll-result]");
+const chapterReport = document.querySelector("[data-chapter-report]");
+const continueButton = document.querySelector("[data-continue]");
 const terminal = document.querySelector(".terminal-screen");
 const sanityLabel = document.querySelector("[data-sanity-label]");
 const sanityMarks = document.querySelectorAll("[data-sanity-mark]");
@@ -166,6 +174,7 @@ function renderTrial() {
   hintEl.textContent = "";
   form.classList.add("is-hidden");
   rollForm.classList.remove("is-hidden");
+  chapterReport.classList.add("is-hidden");
   rollMeta.textContent = `Prueba de ${chapter.stat} ${signed(chapter.mod)} // CD ${chapter.dc}`;
   rollResult.classList.add("is-hidden");
   rollResult.textContent = "";
@@ -186,6 +195,7 @@ function renderRiddle(message = "") {
   hintEl.textContent = "";
   rollForm.classList.add("is-hidden");
   form.classList.remove("is-hidden");
+  chapterReport.classList.add("is-hidden");
   input.value = "";
   input.focus();
   updateProgress();
@@ -226,6 +236,21 @@ function revealFinale() {
   scrollToTop();
 }
 
+function renderChapterReport(completedChapter) {
+  state.phase = "report";
+  statusEl.textContent = "CIERRE DESBLOQUEADO";
+  titleEl.textContent = "Informe de supervivencia";
+  typeCopy(completedChapter.report);
+  hintEl.classList.add("is-hidden");
+  hintEl.textContent = "";
+  sanityWarning.classList.add("is-hidden");
+  rollForm.classList.add("is-hidden");
+  form.classList.add("is-hidden");
+  chapterReport.classList.remove("is-hidden");
+  continueButton.textContent = state.step >= chapters.length ? "Recuperar el sobre" : "Continuar expediente";
+  updateProgress();
+}
+
 function fail() {
   terminal.classList.remove("shake");
   window.requestAnimationFrame(() => {
@@ -247,6 +272,15 @@ document.querySelector("[data-start]").addEventListener("click", () => {
 });
 
 document.querySelector("[data-open-voucher]").addEventListener("click", revealVoucher);
+
+continueButton.addEventListener("click", () => {
+  if (state.step >= chapters.length) {
+    revealFinale();
+    return;
+  }
+
+  renderTrial();
+});
 
 rollForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -286,6 +320,7 @@ rollForm.addEventListener("submit", (event) => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const lock = currentChapter().lock;
+  const chapter = currentChapter();
   const answer = normalize(input.value);
 
   if (!lock.answers.includes(answer)) {
@@ -299,11 +334,11 @@ form.addEventListener("submit", (event) => {
   state.failures = 0;
   if (state.step >= chapters.length) {
     document.querySelectorAll("[data-step-dot]").forEach((dot) => dot.classList.add("is-complete"));
-    setTimeout(revealFinale, 450);
+    setTimeout(() => renderChapterReport(chapter), 450);
     return;
   }
 
-  renderTrial();
+  setTimeout(() => renderChapterReport(chapter), 450);
 });
 
 document.querySelector("[data-show-hint]").addEventListener("click", () => {

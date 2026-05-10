@@ -596,7 +596,8 @@ h3 {
 }
 
 .answer-form,
-.roll-panel {
+.roll-panel,
+.chapter-report {
   margin-top: 26px;
 }
 
@@ -616,6 +617,11 @@ h3 {
   margin: 12px 0 0;
   color: #f0d9a3;
   font-family: Consolas, "Courier New", monospace;
+}
+
+.chapter-report {
+  padding-top: 18px;
+  border-top: 1px solid rgba(155, 191, 143, 0.18);
 }
 
 label {
